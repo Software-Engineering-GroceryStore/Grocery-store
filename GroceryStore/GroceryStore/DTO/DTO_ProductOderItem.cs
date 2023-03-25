@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GroceryStore
 {
-    public partial class ItemOder : UserControl
+    public partial class DTO_ProductOderItem : UserControl
     {
-        public ItemOder()
+        public DTO_ProductOderItem()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace GroceryStore
         private String _priceItemOder;
         private String _lb_totalItem;
 
-        public ItemOder(string name, string price, int number)
+        public DTO_ProductOderItem(string name, string price, int number)
         {
             this.lb_nameItemOder.Text = name;
             this.lb_priceItemOder.Text = price;

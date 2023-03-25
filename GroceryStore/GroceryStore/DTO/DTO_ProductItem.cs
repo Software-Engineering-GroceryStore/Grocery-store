@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GroceryStore
 {
-    public partial class Item : System.Windows.Forms.UserControl
+    public partial class DTO_ProductItem : System.Windows.Forms.UserControl
     {
-        public Item()
+        public DTO_ProductItem()
         {
             InitializeComponent();
         }

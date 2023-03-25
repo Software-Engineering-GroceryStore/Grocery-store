@@ -7,7 +7,7 @@
     <Compile Update="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ItemOder.cs">
+    <Compile Update="DTO\DTO_ProductOderItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="LoginForm.cs">
@@ -16,7 +16,7 @@
     <Compile Update="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Item.cs">
+    <Compile Update="DTO\DTO_ProductItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

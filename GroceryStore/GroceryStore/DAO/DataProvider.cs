@@ -20,6 +20,7 @@ namespace GroceryStore.DAO
 
         String connectString = @"Data Source=MSI;Initial Catalog=CuaHangTienLoi;Integrated Security=True";
 
+        //String conn = $"{}"
         public DataTable ExecuteQuery(string query, object[] parameters = null)
         {
             DataTable table = new DataTable();

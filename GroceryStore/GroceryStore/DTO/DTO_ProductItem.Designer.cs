@@ -1,6 +1,6 @@
 ﻿namespace GroceryStore
 {
-    partial class Item
+    partial class DTO_ProductItem
     {
         /// <summary> 
         /// Required designer variable.

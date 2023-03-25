@@ -16,7 +16,6 @@ namespace GroceryStore
 {
     public partial class HomeForm : Form
     {
-        String connectionString = "Data Source=MSI;Initial Catalog=CuaHangTienLoi;Integrated Security=True";
         public HomeForm()
         {
             InitializeComponent();
@@ -31,16 +30,18 @@ namespace GroceryStore
             List<DTO_Product> products = new List<DTO_Product>();
 
             connectData(products);
-            Item[] listProduct = new Item[products.Count];
+            DTO_ProductItem[] listProduct = new DTO_ProductItem[products.Count];
             for (int i = 0; i < products.Count; i++)
             {
                 //thêm dữ liệu lên giao diện
-                listProduct[i] = new Item();
-                listProduct[i].Click += new EventHandler((sender, e) => OnClick(e));
-                listProduct[i].NameProduct = products[i].TenSP;
-                listProduct[i].PriceProduct = (products[i].GiaSP).ToString() + " đ";
+                BUS_ProductItem bus_prod = new BUS_ProductItem();
+                listProduct[i] = bus_prod.createProductItem(products[i], sender);
 
-                listProduct[i].ImageProduct = handleUrlImage(products[i].HinhAnh);
+                //listProduct[i].Click += new EventHandler((sender, e) => OnClick(e));
+                //listProduct[i].NameProduct = products[i].TenSP;
+                //listProduct[i].PriceProduct = (products[i].GiaSP).ToString() + " đ";
+
+                //listProduct[i].ImageProduct = handleUrlImage(products[i].HinhAnh);
                 flowLayout.Controls.Add(listProduct[i]);
             }
         }
@@ -90,6 +91,11 @@ namespace GroceryStore
         void OnClick(EventArgs e)
         {
             MessageBox.Show("aaa");
+        }
+
+        private void flowLayoutItemOder_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -38,13 +38,13 @@ namespace GroceryStore.BUS
 
         #region 4. Show product in Cart
         //ItemOder are products which are in cart
-        public List<ItemOder> showProductsInCart(DTO_Cart cart)
+        public List<DTO_ProductOderItem> showProductsInCart(DTO_Cart cart)
         {
-            List<ItemOder> listItem = new List<ItemOder>();
+            List<DTO_ProductOderItem> listItem = new List<DTO_ProductOderItem>();
 
             foreach(DTO_Product product in cart.Products.GetAll())
             {
-                listItem.Add(new ItemOder(product.TenSP, convertPrice(product.GiaSP), 1));
+                listItem.Add(new DTO_ProductOderItem(product.TenSP, convertPrice(product.GiaSP), 1));
             }
 
             return listItem;
