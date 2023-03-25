@@ -21,6 +21,23 @@ namespace GroceryStore
         private String _nameItemOder;
         private String _priceItemOder;
         private String _lb_totalItem;
+        private void ItemOder_Load(object sender, EventArgs e)
+        {
+            pb_plus.Click += new System.EventHandler((object sender, EventArgs e) => this.OnClick(e));
+            pb_minus.Click += new System.EventHandler((object sender, EventArgs e) => this.OnClick(e));
+        }
+
+        private void pb_plus_Click(object sender, EventArgs e)
+        {
+            int a = int.Parse(this._lb_totalItem) + 1;
+            this._lb_totalItem = a.ToString();
+        }
+
+        private void pb_minus_Click(object sender, EventArgs e)
+        {
+            int a = int.Parse(this._lb_totalItem) - 1;
+            this._lb_totalItem = a.ToString();
+        }
 
         public DTO_ProductOderItem(string name, string price, int number)
         {

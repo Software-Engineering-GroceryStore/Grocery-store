@@ -83,6 +83,7 @@
             pb_plus.SizeMode = PictureBoxSizeMode.Zoom;
             pb_plus.TabIndex = 3;
             pb_plus.TabStop = false;
+            pb_plus.Click += pb_plus_Click;
             // 
             // pb_minus
             // 
@@ -94,6 +95,7 @@
             pb_minus.SizeMode = PictureBoxSizeMode.Zoom;
             pb_minus.TabIndex = 4;
             pb_minus.TabStop = false;
+            pb_minus.Click += pb_minus_Click;
             // 
             // lb_totalItem
             // 
@@ -118,7 +120,7 @@
             panel1.Size = new Size(411, 1);
             panel1.TabIndex = 6;
             // 
-            // ItemOder
+            // DTO_ProductOderItem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -131,8 +133,9 @@
             Controls.Add(pb_delete);
             Margin = new Padding(17, 4, 3, 4);
             MinimumSize = new Size(427, 93);
-            Name = "ItemOder";
+            Name = "DTO_ProductOderItem";
             Size = new Size(427, 93);
+            Load += ItemOder_Load;
             ((System.ComponentModel.ISupportInitialize)pb_delete).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_plus).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_minus).EndInit();

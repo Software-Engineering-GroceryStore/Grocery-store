@@ -34,14 +34,16 @@ namespace GroceryStore
             for (int i = 0; i < products.Count; i++)
             {
                 //thêm dữ liệu lên giao diện
-                BUS_ProductItem bus_prod = new BUS_ProductItem();
-                listProduct[i] = bus_prod.createProductItem(products[i], sender);
+                BUS_ProductItem bus_prod = new BUS_ProductItem(flowLayoutItemOder, lb_totalMoney, lb_pay);
+                listProduct[i] = bus_prod.createProductItem(products[i]);
 
                 //listProduct[i].Click += new EventHandler((sender, e) => OnClick(e));
                 //listProduct[i].NameProduct = products[i].TenSP;
                 //listProduct[i].PriceProduct = (products[i].GiaSP).ToString() + " đ";
 
                 //listProduct[i].ImageProduct = handleUrlImage(products[i].HinhAnh);
+
+
                 flowLayout.Controls.Add(listProduct[i]);
             }
         }
