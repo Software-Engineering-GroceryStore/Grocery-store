@@ -20,7 +20,7 @@ namespace GroceryStore
         #region Properties
         private Image _imageProduct;
         private String _nameProduct;
-        private String _priceProduct;
+        private int _priceProduct;
 
         private void itemClick(object sender, EventArgs e)
         {
@@ -47,10 +47,10 @@ namespace GroceryStore
         }
 
         [Category("N5")]
-        public String PriceProduct
+        public int PriceProduct
         {
             get { return _priceProduct; }
-            set { _priceProduct = value; lb_priceProduct.Text = value; }
+            set { _priceProduct = value; lb_priceProduct.Text = value.ToString(); }
         }
 
         #endregion

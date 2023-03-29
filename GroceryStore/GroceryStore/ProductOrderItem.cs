@@ -19,8 +19,8 @@ namespace GroceryStore
 
         #region Properties
         private String _nameItemOder;
-        private String _priceItemOder;
-        private String _lb_totalItem;
+        private int _priceItemOder;
+        private int _lb_totalItem;
         private void ItemOder_Load(object sender, EventArgs e)
         {
             pb_plus.Click += new System.EventHandler((object sender, EventArgs e) => this.OnClick(e));
@@ -29,14 +29,12 @@ namespace GroceryStore
 
         private void pb_plus_Click(object sender, EventArgs e)
         {
-            int a = int.Parse(this._lb_totalItem) + 1;
-            this._lb_totalItem = a.ToString();
+            this._lb_totalItem++;
         }
 
         private void pb_minus_Click(object sender, EventArgs e)
         {
-            int a = int.Parse(this._lb_totalItem) - 1;
-            this._lb_totalItem = a.ToString();
+            this._lb_totalItem--;
         }
 
         public ProductOrderItem(string name, string price, int number)
@@ -54,17 +52,17 @@ namespace GroceryStore
         }
 
         [Category("N5")]
-        public String PriceItemOder
+        public int PriceItemOder
         {
             get { return _priceItemOder; }
-            set { _priceItemOder = value; lb_priceItemOder.Text = value; }
+            set { _priceItemOder = value; lb_priceItemOder.Text = value.ToString(); }
         }
 
         [Category("N5")]
-        public string NumberOfItem
+        public int NumberOfItem
         {
             get { return _lb_totalItem; }
-            set { _lb_totalItem = value; lb_totalItem.Text = value; }
+            set { _lb_totalItem = value; lb_totalItem.Text = value.ToString(); }
         }
 
         #endregion

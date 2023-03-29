@@ -46,7 +46,7 @@ namespace GroceryStore
                 //thêm dữ liệu lên giao diện
                 listProduct[i] = new ProductItem();
                 listProduct[i].NameProduct = products[i].TenSP;
-                listProduct[i].PriceProduct = (products[i].GiaSP).ToString() + " đ";
+                listProduct[i].PriceProduct = (products[i].GiaSP);
 
                 listProduct[i].ImageProduct = handleUrlImage(products[i].HinhAnh);
 
@@ -78,7 +78,7 @@ namespace GroceryStore
                 //thêm dữ liệu lên giao diện
                 listProduct[i] = new ProductItem();
                 listProduct[i].NameProduct = products[i].TenSP;
-                listProduct[i].PriceProduct = (products[i].GiaSP).ToString() + " đ";
+                listProduct[i].PriceProduct = (products[i].GiaSP);
 
                 listProduct[i].ImageProduct = handleUrlImage(products[i].HinhAnh);
 
@@ -144,7 +144,7 @@ namespace GroceryStore
             ProductOrderItem order = new ProductOrderItem();
             order.NameItemOder = obj.NameProduct;
             order.PriceItemOder = obj.PriceProduct;
-            order.NumberOfItem = 1.ToString();
+            order.NumberOfItem = 1;
             order.Click += new System.EventHandler(this.select_Product_Cart);
             orders.Add(order);
             show_product_cart();
@@ -156,7 +156,7 @@ namespace GroceryStore
         {
             ProductOrderItem obj = (ProductOrderItem)sender;
             obj.NumberOfItem = obj.NumberOfItem;
-            if (int.Parse(obj.NumberOfItem) <= 0)
+            if (obj.NumberOfItem <= 0)
             {
                 orders.Remove(obj);
                 show_product_cart();
@@ -171,10 +171,10 @@ namespace GroceryStore
             double totalMoney = 0;
             foreach (var item in orders)
             {
-                totalMoney += int.Parse(item.PriceItemOder) * int.Parse(item.NumberOfItem);
+                totalMoney += item.PriceItemOder * item.NumberOfItem;
             }
-            lb_totalMoney.Text = totalMoney.ToString();
-            lb_pay.Text = totalMoney.ToString();
+            lb_totalMoney.Text = totalMoney.ToString() + " đ";
+            lb_pay.Text = totalMoney.ToString() + " đ";
         }
 
         //Show product in user's cart
