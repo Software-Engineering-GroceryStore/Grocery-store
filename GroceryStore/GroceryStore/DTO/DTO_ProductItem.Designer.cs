@@ -85,15 +85,17 @@
             pb_imageProduct.TabIndex = 0;
             pb_imageProduct.TabStop = false;
             // 
-            // Item
+            // DTO_ProductItem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Controls.Add(item_panel);
             Margin = new Padding(0);
             MaximumSize = new Size(181, 259);
             MinimumSize = new Size(181, 259);
-            Name = "Item";
+            Name = "DTO_ProductItem";
             Size = new Size(181, 259);
             Load += Item_Load;
             Click += itemClick;

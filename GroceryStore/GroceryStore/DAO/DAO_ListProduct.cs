@@ -17,5 +17,23 @@ namespace GroceryStore.DAO
             return DataProvider.Instance.ExecuteQuery(statement);
         }
         #endregion
+
+        #region 2. show products by type
+        public DataTable getProductsByType(String type)
+        {
+            string statement = $"SELECT * FROM SanPham WHERE LoaiSP = @LoaiSP";
+            return DataProvider.Instance.ExecuteQuery(statement, new object[] { type });
+            
+        }
+        #endregion 
+
+        #region 3. show products by name
+        public DataTable getProductsByName(String name)
+        {
+            string statement = $"SELECT * FROM SanPham WHERE TenSP = @TenSP";
+            return DataProvider.Instance.ExecuteQuery(statement, new object[] { name });
+
+        }
+        #endregion 
     }
 }

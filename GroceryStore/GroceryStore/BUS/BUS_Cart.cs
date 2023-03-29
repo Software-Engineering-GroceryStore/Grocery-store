@@ -10,9 +10,10 @@ namespace GroceryStore.BUS
 {
     internal class BUS_Cart
     {
+
+        #region 1.Calculate bill
         public int calculateBill(DTO_Cart cart)
         {
-            #region 1.Calculate bill
             int sumMoney = 0;
             foreach(DTO_Product product in cart.Products.GetAll())
             {
@@ -38,13 +39,13 @@ namespace GroceryStore.BUS
 
         #region 4. Show product in Cart
         //ItemOder are products which are in cart
-        public List<DTO_ProductOderItem> showProductsInCart(DTO_Cart cart)
+        public List<DTO_ProductOrderItem> showProductsInCart(DTO_Cart cart)
         {
-            List<DTO_ProductOderItem> listItem = new List<DTO_ProductOderItem>();
+            List<DTO_ProductOrderItem> listItem = new List<DTO_ProductOrderItem>();
 
             foreach(DTO_Product product in cart.Products.GetAll())
             {
-                listItem.Add(new DTO_ProductOderItem(product.TenSP, convertPrice(product.GiaSP), 1));
+                listItem.Add(new DTO_ProductOrderItem(product.TenSP, convertPrice(product.GiaSP), 1));
             }
 
             return listItem;

@@ -13,7 +13,7 @@ namespace GroceryStore.DAO
         #region 1. Insert product
         public void insertProduct(DTO_Product product)
         {
-            string statement = "INSERT INTO SanPham (TenSP, GiaSP, HinhAnh, LoaiSP) VALUES ( @TenSP , @GiaSP , @HinhAnh , @LoaiSP)";
+            string statement = "INSERT INTO SanPham (TenSP, GiaSP, HinhAnh, LoaiSP) VALUES ( @TenSP , @GiaSP , @HinhAnh , @LoaiSP )";
             DataProvider.Instance.ExecuteNonQuery(statement, new object[] { product.TenSP, product.GiaSP, product.HinhAnh , product.LoaiSP});
         }
         #endregion

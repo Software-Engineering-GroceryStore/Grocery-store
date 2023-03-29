@@ -12,13 +12,14 @@ namespace GroceryStore.BUS
     internal class BUS_ProductItem
     {
 
-        List<DTO_ProductOderItem> orders = new List<DTO_ProductOderItem>();
+        private List<DTO_ProductOrderItem> orders;
         private FlowLayoutPanel ItemOderPanel;
         private Label lb_totalMoney;
         private Label lb_pay;
 
-        public BUS_ProductItem(FlowLayoutPanel ItemOderPanel, Label lb_totalMoney, Label lb_pay)
+        public BUS_ProductItem(List<DTO_ProductOrderItem> orders, FlowLayoutPanel ItemOderPanel, Label lb_totalMoney, Label lb_pay)
         {
+            this.orders = orders;
             this.ItemOderPanel = ItemOderPanel;
             this.lb_pay = lb_pay;
             this.lb_totalMoney = lb_totalMoney;
@@ -41,29 +42,29 @@ namespace GroceryStore.BUS
 
             DTO_ProductItem obj = (DTO_ProductItem)sender;
             //ItemOderPanel.Controls.Clear();
-            DTO_ProductOderItem order = new DTO_ProductOderItem();
+            DTO_ProductOrderItem order = new DTO_ProductOrderItem();
             order.NameItemOder = obj.NameProduct;
             order.PriceItemOder = obj.PriceProduct;
             order.NumberOfItem = "1";
             order.Click += new System.EventHandler(this.order_Click);
             orders.Add(order);
-            loadItemOrder(ItemOderPanel); ;
-            calculeteTotalMoney(lb_totalMoney, lb_pay);
+            loadItemOrder(ItemOderPanel);
+            calculeteTotalMoney(orders, lb_totalMoney, lb_pay);
         }
 
         public void order_Click(object sender, EventArgs e)
         {
-            DTO_ProductOderItem obj = (DTO_ProductOderItem)sender;
+            DTO_ProductOrderItem obj = (DTO_ProductOrderItem)sender;
             obj.NumberOfItem = obj.NumberOfItem;
             if (int.Parse(obj.NumberOfItem) <= 0)
             {
                 orders.Remove(obj);
                 loadItemOrder(ItemOderPanel);
             }
-            calculeteTotalMoney(lb_totalMoney, lb_pay);
+            calculeteTotalMoney(orders, lb_totalMoney, lb_pay);
         }
 
-        public void calculeteTotalMoney(Label lb_totalMoney, Label lb_pay)
+        void calculeteTotalMoney(List<DTO_ProductOrderItem> orders, Label lb_totalMoney, Label lb_pay)
         {
             int totalMoney = 0;
             foreach (var item in orders)
@@ -74,7 +75,7 @@ namespace GroceryStore.BUS
             lb_pay.Text = totalMoney.ToString();
         }
 
-        public void loadItemOrder(FlowLayoutPanel panel)
+        void loadItemOrder(FlowLayoutPanel panel)
         {
             panel.Controls.Clear();
             foreach (var item in orders)

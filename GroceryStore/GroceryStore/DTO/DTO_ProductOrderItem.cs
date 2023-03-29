@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GroceryStore
 {
-    public partial class DTO_ProductOderItem : UserControl
+    public partial class DTO_ProductOrderItem : UserControl
     {
-        public DTO_ProductOderItem()
+        public DTO_ProductOrderItem()
         {
             InitializeComponent();
         }
@@ -39,7 +39,7 @@ namespace GroceryStore
             this._lb_totalItem = a.ToString();
         }
 
-        public DTO_ProductOderItem(string name, string price, int number)
+        public DTO_ProductOrderItem(string name, string price, int number)
         {
             this.lb_nameItemOder.Text = name;
             this.lb_priceItemOder.Text = price;

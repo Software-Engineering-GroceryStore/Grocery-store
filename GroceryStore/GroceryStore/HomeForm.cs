@@ -21,6 +21,8 @@ namespace GroceryStore
             InitializeComponent();
         }
 
+        DTO_ProductItem[] ProductItem;
+
         private void HomeForm_Load(object sender, EventArgs e)
         {
 
@@ -30,11 +32,14 @@ namespace GroceryStore
             List<DTO_Product> products = new List<DTO_Product>();
 
             connectData(products);
+
+            List<DTO_ProductOrderItem> orders = new List<DTO_ProductOrderItem>();
+            BUS_ProductItem bus_prod = new BUS_ProductItem(orders, flowLayoutItemOder, lb_totalMoney, lb_pay);
             DTO_ProductItem[] listProduct = new DTO_ProductItem[products.Count];
+
             for (int i = 0; i < products.Count; i++)
             {
                 //thêm dữ liệu lên giao diện
-                BUS_ProductItem bus_prod = new BUS_ProductItem(flowLayoutItemOder, lb_totalMoney, lb_pay);
                 listProduct[i] = bus_prod.createProductItem(products[i]);
 
                 //listProduct[i].Click += new EventHandler((sender, e) => OnClick(e));
@@ -46,6 +51,7 @@ namespace GroceryStore
 
                 flowLayout.Controls.Add(listProduct[i]);
             }
+            ProductItem = listProduct;
         }
 
 
@@ -77,27 +83,11 @@ namespace GroceryStore
             bus_listproduct.showAllProduct(products);
         }
 
-        private Image handleUrlImage(string urlImage)
+        private void HomeForm_SizeChanged(object sender, EventArgs e)
         {
-            using (WebClient webClient = new WebClient())
-            {
-                byte[] imageBytes = webClient.DownloadData(urlImage);
-                using (MemoryStream stream = new MemoryStream(imageBytes))
-                {
-                    Image image = Image.FromStream(stream);
-                    return image;
-                }
-            }
-        }
-
-        void OnClick(EventArgs e)
-        {
-            MessageBox.Show("aaa");
-        }
-
-        private void flowLayoutItemOder_Paint(object sender, PaintEventArgs e)
-        {
-
+            //panel3.Size = new Size((int)(0.25 * this.Width), (int)(0.78 * this.Height));
+            panel2.Size = new Size((int)(0.67 * this.Width), (int)(0.78 * this.Height));
+            flowLayout.Size = new Size((int)(0.67 * this.Width), (int)(0.78 * this.Height));
         }
     }
 }

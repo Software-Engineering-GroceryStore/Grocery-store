@@ -81,7 +81,6 @@ namespace GroceryStore.DAO
 
         public static void addValuePara(SqlCommand command, string query, object[] parameters = null)
         {
-
             if (parameters != null)
             {
                 string[] paras = query.Split(" ");

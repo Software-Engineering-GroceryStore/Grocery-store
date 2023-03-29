@@ -141,4 +141,4 @@ E:\Software Technology\CNPM_version_5\GroceryStore\GroceryStore\obj\Debug\net6.0
 E:\Software Technology\CNPM_version_5\GroceryStore\GroceryStore\obj\Debug\net6.0-windows\GroceryStore.genruntimeconfig.cache
 E:\Software Technology\CNPM_version_5\GroceryStore\GroceryStore\obj\Debug\net6.0-windows\ref\GroceryStore.dll
 E:\Software Technology\CNPM_version_5\GroceryStore\GroceryStore\obj\Debug\net6.0-windows\GroceryStore.DTO_ProductItem.resources
-E:\Software Technology\CNPM_version_5\GroceryStore\GroceryStore\obj\Debug\net6.0-windows\GroceryStore.DTO_ProductOderItem.resources
+E:\Software Technology\CNPM_version_5\GroceryStore\GroceryStore\obj\Debug\net6.0-windows\GroceryStore.DTO_ProductOrderItem.resources

@@ -1,6 +1,6 @@
 ﻿namespace GroceryStore
 {
-    partial class DTO_ProductOderItem
+    partial class DTO_ProductOrderItem
     {
         /// <summary> 
         /// Required designer variable.
@@ -124,6 +124,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Controls.Add(panel1);
             Controls.Add(lb_totalItem);
             Controls.Add(pb_minus);
