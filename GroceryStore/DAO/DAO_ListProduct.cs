@@ -21,7 +21,7 @@ namespace DAO
         #region 2. show products by type
         public DataTable getProductsByType(String type)
         {
-            string statement = $"SELECT * FROM SanPham WHERE LoaiSP = @LoaiSP";
+            string statement = $"SELECT TenSP, GiaSP, HinhAnh, LoaiSP FROM SanPham WHERE LoaiSP = @LoaiSP";
             return DataProvider.Instance.ExecuteQuery(statement, new object[] { type });
             
         }

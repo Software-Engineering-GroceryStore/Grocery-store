@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BUS_1
 {
-    internal class BUS_Image
+    public class BUS_Image
     {
     }
 }

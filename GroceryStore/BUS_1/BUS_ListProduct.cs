@@ -45,5 +45,18 @@ namespace BUS
             }
         }
         #endregion
+
+        #region 4. get products by type
+        public void getProductsByType(List<DTO_Product> list_products, List<DTO_Product> products, String type)
+        {
+            foreach (DTO_Product product in list_products)
+            {
+                if(product.LoaiSP == type)
+                {
+                    products.Add(product);
+                }
+            }
+        }
+        #endregion
     }
 }
