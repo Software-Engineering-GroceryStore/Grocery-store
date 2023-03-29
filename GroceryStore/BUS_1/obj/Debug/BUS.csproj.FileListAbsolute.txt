@@ -1,0 +1,11 @@
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\bin\Debug\BUS_1.dll
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\bin\Debug\BUS_1.pdb
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\bin\Debug\DAO.dll
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\bin\Debug\DTO.dll
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\bin\Debug\DAO.pdb
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\bin\Debug\DTO.pdb
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\obj\Debug\BUS.csproj.AssemblyReference.cache
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\obj\Debug\BUS.csproj.CopyComplete
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\obj\Debug\BUS_1.dll
+E:\Software Technology\CNPM_version_5\GroceryStore\BUS_1\obj\Debug\BUS_1.pdb

@@ -4,6 +4,62 @@
     "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\GroceryStore\\GroceryStore.csproj": {}
   },
   "projects": {
+    "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\BUS_1\\BUS.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\BUS_1\\BUS.csproj",
+        "projectName": "BUS",
+        "projectPath": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\BUS_1\\BUS.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DAO\\DAO.csproj": {
+                "projectPath": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DAO\\DAO.csproj"
+              },
+              "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DTO\\DTO.csproj": {
+                "projectPath": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DTO\\DTO.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DAO\\DAO.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DAO\\DAO.csproj",
+        "projectName": "DAO",
+        "projectPath": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DAO\\DAO.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DTO\\DTO.csproj": {
+                "projectPath": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DTO\\DTO.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DTO\\DTO.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DTO\\DTO.csproj",
+        "projectName": "DTO",
+        "projectPath": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DTO\\DTO.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\GroceryStore\\GroceryStore.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +83,14 @@
         "frameworks": {
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\BUS_1\\BUS.csproj": {
+                "projectPath": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\BUS_1\\BUS.csproj"
+              },
+              "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DTO\\DTO.csproj": {
+                "projectPath": "E:\\Software Technology\\CNPM_version_5\\GroceryStore\\DTO\\DTO.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

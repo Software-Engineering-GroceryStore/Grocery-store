@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "GroceryStore/1.0.0": {
         "dependencies": {
+          "BUS": "1.0.0",
+          "DTO": "1.0.0",
           "Guna.UI2.WinForms": "2.0.4.4",
           "MetroSet_UI": "2.0.0",
           "Microsoft.AspNet.WebApi.Client": "5.2.9",
@@ -974,6 +976,28 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
+      },
+      "BUS/1.0.0": {
+        "dependencies": {
+          "DAO": "1.0.0",
+          "DTO": "1.0.0"
+        },
+        "runtime": {
+          "BUS_1.dll": {}
+        }
+      },
+      "DAO/1.0.0": {
+        "dependencies": {
+          "DTO": "1.0.0"
+        },
+        "runtime": {
+          "DAO.dll": {}
+        }
+      },
+      "DTO/1.0.0": {
+        "runtime": {
+          "DTO.dll": {}
+        }
       }
     }
   },
@@ -1668,6 +1692,21 @@
       "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "BUS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DAO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -1,0 +1,6 @@
+E:\Software Technology\CNPM_version_5\GroceryStore\DTO\bin\Debug\DTO.dll
+E:\Software Technology\CNPM_version_5\GroceryStore\DTO\bin\Debug\DTO.pdb
+E:\Software Technology\CNPM_version_5\GroceryStore\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+E:\Software Technology\CNPM_version_5\GroceryStore\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+E:\Software Technology\CNPM_version_5\GroceryStore\DTO\obj\Debug\DTO.dll
+E:\Software Technology\CNPM_version_5\GroceryStore\DTO\obj\Debug\DTO.pdb

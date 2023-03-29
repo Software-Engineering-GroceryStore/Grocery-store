@@ -1,5 +1,5 @@
-﻿using GroceryStore.BUS;
-using GroceryStore.DTO;
+﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +23,10 @@ namespace GroceryStore
 
         DTO_ProductItem[] ProductItem;
 
+
+        ProductItem[] listProduct;
+        List<ProductOrderItem> orders = new List<ProductOrderItem>();
+
         private void HomeForm_Load(object sender, EventArgs e)
         {
 
@@ -34,21 +38,18 @@ namespace GroceryStore
             connectData(products);
 
             List<DTO_ProductOrderItem> orders = new List<DTO_ProductOrderItem>();
-            BUS_ProductItem bus_prod = new BUS_ProductItem(orders, flowLayoutItemOder, lb_totalMoney, lb_pay);
             DTO_ProductItem[] listProduct = new DTO_ProductItem[products.Count];
-
             for (int i = 0; i < products.Count; i++)
             {
                 //thêm dữ liệu lên giao diện
-                listProduct[i] = bus_prod.createProductItem(products[i]);
+                listProduct[i] = new DTO_ProductItem();
+                listProduct[i].NameProduct = products[i].TenSP;
+                listProduct[i].PriceProduct = (products[i].GiaSP).ToString() + " đ";
 
-                //listProduct[i].Click += new EventHandler((sender, e) => OnClick(e));
-                //listProduct[i].NameProduct = products[i].TenSP;
-                //listProduct[i].PriceProduct = (products[i].GiaSP).ToString() + " đ";
-
-                //listProduct[i].ImageProduct = handleUrlImage(products[i].HinhAnh);
+                listProduct[i].ImageProduct = handleUrlImage(products[i].HinhAnh);
 
 
+                listProduct[i].Click += new System.EventHandler(this.Item_Click);
                 flowLayout.Controls.Add(listProduct[i]);
             }
             ProductItem = listProduct;
@@ -58,36 +59,82 @@ namespace GroceryStore
         private void connectData(List<DTO_Product> products)
         {
             // Kết nối đến database
-            //using (SqlConnection connection = new SqlConnection(connectionString))
-            //{
-            //    connection.Open();
-
-            //    string sql = "SELECT TenSP, GiaSP, HinhAnh FROM SanPham";
-            //    SqlCommand command = new SqlCommand(sql, connection);
-
-            //    using (SqlDataReader reader = command.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //            string tenSp = reader.GetString(0);
-            //            string giaSp = reader.GetString(1);
-            //            string hinhAnh = reader.GetString(2);
-
-
-            //            DTO_Product product = new DTO_Product(tenSp, giaSp, hinhAnh);
-            //            products.Add(product);
-            //        }
-            //    }
-            //}
             BUS_ListProduct bus_listproduct = new BUS_ListProduct();
             bus_listproduct.showAllProduct(products);
         }
 
+        private Image handleUrlImage(string urlImage)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                byte[] imageBytes = webClient.DownloadData(urlImage);
+                using (MemoryStream stream = new MemoryStream(imageBytes))
+                {
+                    Image image = Image.FromStream(stream);
+                    return image;
+                }
+            }
+        }
+
+        void Item_Click(object sender, EventArgs e)
+        {
+
+            ProductItem obj = (ProductItem)sender;
+            flowLayoutItemOder.Controls.Clear();
+            ProductOrderItem order = new ProductOrderItem();
+            order.NameItemOder = obj.NameProduct;
+            order.PriceItemOder = obj.PriceProduct;
+            order.NumberOfItem = 1.ToString();
+            order.Click += new System.EventHandler(this.order_Click);
+            orders.Add(order);
+            loadItemOrder();
+            calculeteTotalMoney();
+        }
+
+        void order_Click(object sender, EventArgs e)
+        {
+            ProductOrderItem obj = (ProductOrderItem)sender;
+            obj.NumberOfItem = obj.NumberOfItem;
+            if (int.Parse(obj.NumberOfItem) <= 0)
+            {
+                orders.Remove(obj);
+                loadItemOrder();
+            }
+            calculeteTotalMoney();
+        }
+
+        void calculeteTotalMoney()
+        {
+            double totalMoney = 0;
+            foreach (var item in orders)
+            {
+                totalMoney += int.Parse(item.PriceItemOder) * int.Parse(item.NumberOfItem);
+            }
+            lb_totalMoney.Text = totalMoney.ToString();
+            lb_pay.Text = totalMoney.ToString();
+        }
+
+        void loadItemOrder()
+        {
+            flowLayoutItemOder.Controls.Clear();
+            foreach (var item in orders)
+            {
+                flowLayoutItemOder.Controls.Add(item);
+            }
+        }
+
         private void HomeForm_SizeChanged(object sender, EventArgs e)
         {
-            //panel3.Size = new Size((int)(0.25 * this.Width), (int)(0.78 * this.Height));
-            panel2.Size = new Size((int)(0.67 * this.Width), (int)(0.78 * this.Height));
-            flowLayout.Size = new Size((int)(0.67 * this.Width), (int)(0.78 * this.Height));
+            if(this.Width > 1440)
+            {
+                panel2.Size = new Size((int)(0.65 * this.Width), (int)(0.78 * this.Height));
+                flowLayout.Size = new Size((int)(0.65 * this.Width), (int)(0.78 * this.Height));
+            }
+            else
+            {
+                panel2.Size = new Size((int)(0.5 * this.Width), (int)(0.78 * this.Height));
+                flowLayout.Size = new Size((int)(0.5 * this.Width), (int)(0.78 * this.Height));
+            }
         }
     }
 }
