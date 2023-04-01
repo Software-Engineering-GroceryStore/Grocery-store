@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +18,6 @@ namespace GroceryStore
 {
     public partial class RegisterForm : Form
     {
-        String connectionString = "Data Source=DESKTOP-RTQDFRG\\SQLEXPRESS;Initial Catalog=CuaHangTienLoi;Integrated Security=True";
         public RegisterForm()
         {
             InitializeComponent();
@@ -163,34 +164,19 @@ namespace GroceryStore
         }
 
 
-        //hàm kết nối database thực hiện lệnh insert
+        //Check Account: if exist in DB, notice error, else notice successfully login
         private Boolean Connect()
         {
-            string query = "INSERT INTO NhanVien (SoDienThoai, Email, HoTen, DiaChi, MatKhau) VALUES (@Phone, @Email, @Name, @Address, @Password)";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            DTO_User user = new DTO_User(tb_sdt.Text, tb_email.Text, tb_name.Text, tb_address.Text, tb_password.Text);
+            BUS_User bUS = new BUS_User();
+            if (!bUS.checkAccount(user))
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Phone", tb_sdt.Text);
-                    command.Parameters.AddWithValue("@Email", tb_email.Text);
-                    command.Parameters.AddWithValue("@Name", tb_name.Text);
-                    command.Parameters.AddWithValue("@Address", tb_address.Text);
-                    command.Parameters.AddWithValue("@Password", tb_password.Text);
-
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-                    connection.Close();
-
-                    if (result > 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
+                bUS.createAccount(user);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
