@@ -42,9 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS_Cart.cs" />
-    <Compile Include="BUS_Image.cs" />
     <Compile Include="BUS_ListProduct.cs" />
     <Compile Include="BUS_Product.cs" />
+    <Compile Include="BUS_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

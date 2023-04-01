@@ -2,6 +2,8 @@
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using BUS;
+using DTO;
 
 namespace GroceryStore
 {
@@ -59,65 +61,21 @@ namespace GroceryStore
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            string sdt, password;
-            connectDB(out sdt, out password);
-
-            // Sau khi gọi hàm connectDB, sdt và password sẽ chứa giá trị trả về từ câu lệnh SQL.
-
-
-            if (errorLogin.GetError(tb_sdt) != "" || errorLogin.GetError(tb_sdt) != "")
+            DTO_User user = new DTO_User(tb_sdt.Text, tb_password.Text);
+            BUS_User bUS_User = new BUS_User();
+            //MessageBox.Show(bUS_User.checkAccount(user).ToString());
+            if (bUS_User.checkAccount(user))
             {
-                lb_error.Text = "Vui lòng kiểm tra lại thông tin";
+                bUS_User.loginAccount(user);
+                MessageBox.Show("Đăng nhập thành công");
+                this.Hide();
+                HomeForm home = new HomeForm(user);
+                home.Show();
             }
-            else
-            {
-                //nếu mật khẩu và tài khoản đúng, xử lý ở đây
-                if (sdt == tb_sdt.Text && password == tb_password.Text)
-                {
-                    MessageBox.Show("Đông ngooo");
-                }
-                else
-                {
-                    MessageBox.Show("Đăng nhập thất bại");
-                }
-            }
+            else { errorLogin.SetError(tb_sdt, "Tài khoản không tồn tại"); }
+
         }
 
-
-
-        private void connectDB(out string sdt, out string password)
-        {
-            // Kết nối đến database
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                // Tạo command để thực thi stored procedure
-                SqlCommand cmd = new SqlCommand("checkLogin", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                // Thêm tham số vào command
-                SqlParameter param = new SqlParameter("@SoDienThoai", SqlDbType.VarChar);
-                param.Value = tb_sdt.Text;
-                cmd.Parameters.Add(param);
-
-                // Mở kết nối
-                conn.Open();
-
-                // Thực thi command và đọc dữ liệu trả về
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    // Lấy các giá trị trả về từ reader
-                    sdt = reader.GetString(reader.GetOrdinal("SoDienThoai"));
-                    password = reader.GetString(reader.GetOrdinal("MatKhau"));
-                }
-                else
-                {
-                    // Không tìm thấy dữ liệu, gán giá trị mặc định cho sdt và password
-                    sdt = "";
-                    password = "";
-                }
-            }
-        }
         private void lb_forgetPassword_Click(object sender, EventArgs e)
         {
             //xử lý sự kiện forgot password
