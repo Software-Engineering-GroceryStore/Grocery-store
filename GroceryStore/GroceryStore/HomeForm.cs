@@ -16,9 +16,11 @@ namespace GroceryStore
 {
     public partial class HomeForm : Form
     {
-        public HomeForm()
+        private DTO_User user;
+        public HomeForm(DTO_User user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         ProductItem[] ProductItem;

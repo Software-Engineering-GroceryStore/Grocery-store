@@ -69,7 +69,7 @@ namespace GroceryStore
                 bUS_User.loginAccount(user);
                 MessageBox.Show("Đăng nhập thành công");
                 this.Hide();
-                HomeForm home = new HomeForm();
+                HomeForm home = new HomeForm(user);
                 home.Show();
             }
             else { errorLogin.SetError(tb_sdt, "Tài khoản không tồn tại"); }
